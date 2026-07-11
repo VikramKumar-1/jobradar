@@ -99,17 +99,25 @@ export default async function JobsPage({
                 </select>
               </div>
             </div>
-            
-            {jobList.length === 0 ? (
+
+            {error && (
+              <div style={{ background: 'rgba(255,0,0,0.1)', border: '1px solid red', padding: '1rem', borderRadius: '0.5rem', color: 'white', marginBottom: '1rem' }}>
+                <strong>Database Error:</strong> {error.message}
+                <br/>
+                <small>Hint: Check your Vercel Environment Variables. URL or Key might be wrong.</small>
+              </div>
+            )}
+
+            {jobs && jobs.length > 0 ? (
+              <div className="jobs-grid">
+                {jobs.map((job: any) => (
+                  <JobCard key={job.id} job={job} />
+                ))}
+              </div>
+            ) : (
               <div className="empty-state" style={{ marginTop: '2rem' }}>
                 <h3>No Jobs Found</h3>
                 <p>No jobs match your current filters. Try clearing them or fetching new jobs.</p>
-              </div>
-            ) : (
-              <div className="jobs-grid">
-                {jobList.map(job => (
-                  <JobCard key={job.id} job={job} />
-                ))}
               </div>
             )}
           </div>
