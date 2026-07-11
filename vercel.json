@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/fetch-jobs?token=jobradar-secret-123",
+      "schedule": "0 */2 * * *"
+    }
+  ]
+}
