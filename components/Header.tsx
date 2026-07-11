@@ -11,9 +11,11 @@ export default function Header() {
         
         <nav className="main-nav">
           <Link href="/jobs" className="nav-link">Find Jobs</Link>
-          <Link href="/post-job" className="nav-link">Post a Job (Free)</Link>
+          <Link href="/companies" className="nav-link">Companies</Link>
           <div className="nav-divider"></div>
-          <button className="btn-login">Recruiter Login</button>
+          <Link href="/auth" className="btn-login" style={{ textDecoration: 'none' }}>
+            Sign In / Post Job
+          </Link>
         </nav>
       </div>
     </header>
